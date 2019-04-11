@@ -1,0 +1,39 @@
+$baseFontSize: 37.5px;
+
+// px…… to rem 排除%
+@function pxtorem($var) {
+  @if (type-of($var) == list) {
+    @return getRemList($var);
+  }
+  @return getRem($var);
+}
+
+@function getRem($var) {
+  @if (unit($var) == 'px') {
+    @if (abs($var) == 1) {@return $var;}
+    @return ($var / $baseFontSize) * 1rem;
+  }
+  @return $var;
+}
+
+@function getRemList($list) {
+  $str: ();
+  @each $v in $list {
+    $str: append($str, getRem($v));
+  }
+  @return $str;
+}
+
+
+// 设置字体 不同dpi
+@mixin font-size($number) {
+  html &{
+    font-size: $number;
+  }
+  html[data-dpr="2"] &{
+    font-size: $number * 2;
+  }
+  html[data-dpr="3"] &{
+    font-size: $number * 3;
+  }
+}

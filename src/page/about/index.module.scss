@@ -1,0 +1,6 @@
+.main{
+  margin: pxtorem(10px 10px 10px 10px);
+  background: #eee;
+  height: pxtorem(100px);
+  @include font-size(14px);
+}
