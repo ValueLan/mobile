@@ -115,9 +115,18 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.4.4",
     "node-sass": "^4.11.0",
     "sass-resources-loader": "^2.0.0"
   }

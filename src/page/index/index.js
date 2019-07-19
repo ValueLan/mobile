@@ -3,6 +3,20 @@ import Interface from '@/interface';
 import classList from './index.module.scss';
 import net from '@/net/index';
 
+
+function getA(a, b, c) {
+  console.log(a, b, c)
+}
+
+class A{
+  constructor() { }
+  @getA
+  fn() { }
+}
+
+let a = new A();
+console.log(a.fn())
+
 export default class extends Component {
   goto() {
     Interface.goto('/news');
@@ -11,7 +25,7 @@ export default class extends Component {
     console.log('resize')
   }
   componentDidMount() {
-    net.GET('/').then((res)=> {
+    net.GET('/').then((res) => {
       return res;
     })
   }
